@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget id="objectivity.dynamicdropdown.DynamicDropdown" pluginWidget="true" needsEntityContext="true" offlineCapable="true"
+        supportedPlatform="Web"
+        xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+    <name>Dynamic Dropdown</name>
+    <description>Pure simple HTML Select configured by JSON</description>
+    <icon/>
+    <properties>
+        <propertyGroup caption="General">
+            <propertyGroup caption="Main">
+                <property key="IN_OPTS" type="expression" defaultValue="'[]'">
+                    <caption>Options JSON</caption>
+                    <description>JSON array with options: either primitives (strings/ints) or objects {id, label}; example: ["",1,2,{"id":3,"label":"Extended format option sample"}]</description>
+                    <returnType type="String" />
+                </property>
+                <property key="INOUT_SELECTED_ID" type="attribute" required="false">
+                    <caption>Selected option id</caption>
+                    <description>Used both as input (default, initial value) and output (value chosen by user will be set here)</description>
+                    <attributeTypes>
+                        <attributeType name="String"/>
+                        <attributeType name="Integer"/>
+                        <attributeType name="Long"/>
+                    </attributeTypes>
+                </property>
+                <property key="OUT_SELECTED_LABEL" type="attribute" required="false">
+                    <caption>Selected option label</caption>
+                    <description>Output only: label chosen by user will be set here</description>
+                    <attributeTypes>
+                        <attributeType name="String"/>
+                    </attributeTypes>
+                </property>
+            </propertyGroup>
+            <propertyGroup caption="Events">
+                <property key="ON_SELECTION_CHANGE" type="action">
+                    <caption>On selected option change</caption>
+                    <description>The current id/label will be set to Selected option id/label</description>
+                </property>
+            </propertyGroup>
+            <propertyGroup caption="Layout">
+                <property key="placeholderMessage" type="textTemplate" required="false">
+                    <caption>Placeholder message</caption>
+                    <description>The message to display when no option is selected</description>
+                </property>
+            </propertyGroup>
+            <propertyGroup caption="Editability">
+                <systemProperty key="Editability"/>
+            </propertyGroup>
+        </propertyGroup>
+    </properties>
+</widget>
